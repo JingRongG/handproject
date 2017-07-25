@@ -31,15 +31,16 @@ repositories {
 }
 
 configurations{
-	compile.exclude module: "spring-boot-starte-tomcat"
+	compile.exclude module: "spring-boot-starter-tomcat" //取消tomcat依赖
 }
 dependencies {
 	//引入模板引擎thymeleaf 自带spring-boot-starter-web无需多次引入
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	//websocket
-	compile('org.springframework.boot:spring-boot-starter-websocket')
 	//替换springboot默认web容器为jetty
 	compile('org.springframework.boot:spring-boot-starter-jetty')
+	//websocket
+	compile('org.springframework.boot:spring-boot-starter-websocket')
+
 	//热部署工具
 	runtime('org.springframework.boot:spring-boot-devtools')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
