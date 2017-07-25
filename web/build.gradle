@@ -1,0 +1,23 @@
+  plugins {
+    id "com.moowork.node" version "1.2.0"
+  }
+
+  apply plugin: 'java'
+  version '0.0.1-SNAPSHOT'
+
+//npm --registry=https://registry.npm.taobao.org install 使用国内源安装node组件
+  task npmBuild(type: NpmTask) {
+    group = 'node'
+    args = ['run', 'build']
+  }
+//web自模块打jar包前 先执行bpmbuild
+  jar.dependsOn npmBuild
+
+  task npmRun(type: NpmTask) {
+    group = 'node'
+    args = ['run', 'dev']
+  }
+
+
+
+

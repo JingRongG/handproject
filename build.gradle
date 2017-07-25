@@ -12,7 +12,7 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		classpath 'org.springframework:springloaded:1.2.4.RELEASE'
+//		classpath 'org.springframework:springloaded:1.2.4.RELEASE' //热部署的另一种方式
 	}
 }
 
@@ -37,7 +37,7 @@ dependencies {
 	//引入模板引擎thymeleaf 自带spring-boot-starter-web无需多次引入
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	//替换springboot默认web容器为jetty
-	compile('org.springframework.boot:spring-boot-starter-jetty')
+	compile('org.springframework.boot:spring-boot-starter-jetty') //jetty采用nio处理方式更适合作用于长连接的环境
 	//websocket
 	compile('org.springframework.boot:spring-boot-starter-websocket')
 
