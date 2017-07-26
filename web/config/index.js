@@ -1,7 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-var rootPath = path.resolve(__dirname,"../../build/resources/main/static"); //TODO 修改打包路径
+var rootPath = path.resolve(__dirname,"../../src/main/resources/static"); //TODO 修改打包路径
 module.exports = {
   build: {
     env: require('./prod.env'),
