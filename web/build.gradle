@@ -5,6 +5,11 @@
   apply plugin: 'java'
   version '0.0.1-SNAPSHOT'
 
+  task npmInstallOverride(type: NpmTask){
+    group = 'node'
+    args = ['install', '--registry =https://registry.npm.taobao.org'] //使用国内镜像
+  }
+
 //npm --registry=https://registry.npm.taobao.org install 使用国内源安装node组件
   task npmBuild(type: NpmTask) {
     group = 'node'

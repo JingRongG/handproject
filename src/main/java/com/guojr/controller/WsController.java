@@ -12,7 +12,7 @@ public class WsController {
     @MessageMapping("/sendMessage")
     @SendTo("/topic/getResponse")
     public WiselyResponse send(WiselyMessage message) throws Exception{
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         return new WiselyResponse("welcome:"+message.getName());
     }
 }

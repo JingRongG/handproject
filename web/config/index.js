@@ -1,12 +1,13 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+var rootPath = path.resolve(__dirname,"../../build/resources/main/static"); //TODO 修改打包路径
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
+    index: path.resolve(rootPath, 'index.html'),
+    assetsRoot: rootPath,
+    assetsSubDirectory: 'assets', //TODO 目录
     assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
@@ -23,11 +24,13 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 8000, //TODO 修改端口
     autoOpenBrowser: true,
-    assetsSubDirectory: 'static',
+    assetsSubDirectory: 'assets',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/bootapi/**': 'http://localhost:8001'//代理前台/api开头的请求，代理到8080端口，spring boot的访问端口
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
